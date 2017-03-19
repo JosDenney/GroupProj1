@@ -1,12 +1,12 @@
 ---
-title: "Report"
+title: "National Economic Development Compared to Income per Capita"
 author: "Joseph Denney, Laurie Harris, and Timothy McWilliams"
 date: "March 20, 2017"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(echo = TRUE,eval = FALSE)
 ```
 
 ## Introduction
@@ -20,18 +20,18 @@ This analysis will examine the Gross Domestic Product (GDP), as an indicator of 
 ## Data Gathering
 To begin the analysis, we have obtained the GDP rankings for 190 countries from http://data.worldbank.org/data-catalog/GDP-ranking-table. We have also obtained the income group classifications for each country from http://data.worldbank.org/data-catalog/ed-stats.
 
-```{r,code=readLines("GetFiles.R")}
+```{r,code=readLines("GetFiles.R"),eval = FALSE}
 ```
 
 ## Data Tidying and Merging
 To ensure that our analysis considers relevant data for the 190 countries, some data tidying will be necessary.  We want to make sure our variables are consistently formatted and remove any fields that are not necessary for the analysis.
 
-```{r,code=readLines("DataChecks.R")}
+```{r,code=readLines("DataChecks.R"),eval = FALSE}
 ```
 
 Our next step is to merge the two data files, joining by the country code.
 
-```{r,code=readLines("MergedData.R")}
+```{r,code=readLines("MergedData.R"),eval = FALSE}
 ```
 
 We note that there are 190 countries with GDP rankings and 189 matching countries with income groupings therefore, there is one country with an NA value because there is not an income group identified for it.  We have also sorted the data in ascending order of GDP.  To demonstrate the sorting, we have identified the country with the 13th GDP in our sorted data as St. Kitts and Nevis.
@@ -40,7 +40,7 @@ We note that there are 190 countries with GDP rankings and 189 matching countrie
 ### High Income:  OEDC vs. non-OEDC
 We would like to examine some differences among the countries in the high-income group. By definition, these countries are considered to have the highest GNIPC, meaning that the citizens of these countries live quite well.  Specifically, we would like to determine if there is a difference in the economic development of these high-income countries for members of the OEDC vs. non-members of the OEDC.  To do this, we compare the average GDP rankings for each group, where a lower ranking would indicate higher economic development (GDP).
 
-```{r,code=readLines("Analysis.R")}
+```{r,code=readLines("Analysis.R"),eval = FALSE}
 ```
 
 We note that the members of the OEDC appear to have higher levels of economic development, as their mean ranking is 32.97 compared to the mean ranking for non-OEDC countries of 91.91.  For this parameter, a lower valued ranking is associated with a higher GDP value.
@@ -48,15 +48,16 @@ We note that the members of the OEDC appear to have higher levels of economic de
 ##GDP for all countries
 Additionally, we can illustrate GDP for the 190 countries in the plot below.
 
-```{r,code=readLines("Plot.R")}
+```{r,code=readLines("Plot.R"),eval = FALSE}
 ```
 
-*render plot
+![](plot.png)
+
 
 ##High GDP for low-middle income group
 In contrast to the analysis of the high-income countries above, we would like to determine if there are any countries that have a higher level of economic development (GDP) but are considered to have a lower standard of living (GNIPC).  To explore this area of interest we will determine if there are any countries with a relatively high GDP that belong in the low-middle income group.  To begin we will stratify the countries into quintiles according to their GDP.  We will then determine if any countries in the 80th to 100th percentiles belong to the lower middle income group.
 
-```{r,code=readLines("quintiles.R")}
+```{r,code=readLines("quintiles.R"),eval = FALSE}
 ```
 
 There are five countries out of 38 countries in the highest GDP quintile, that belong to the lower middle income group.  This demonstrates that although a country may have a relatively high economic development it's citizens' standard of living may remain lower, compared to other countries.

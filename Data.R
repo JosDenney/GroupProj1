@@ -1,7 +1,7 @@
 # Code to pull in datasets from current working diretory 
 # Couldn't get GetFiles.R to run 
 
-setwd("C:\\Users\\TMccw\\Dropbox\\CaseStudy1")
+setwd("~\\DataScience\\GroupProj1")
 list.files()
 
 # Pull files from working directory 
